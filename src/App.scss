@@ -107,6 +107,7 @@ $tabs-color : #202020;
     }
   }
   .Time{
+    margin-top: -30px;
     .items{
       display: grid;
       margin: 0;
@@ -156,6 +157,41 @@ $tabs-color : #202020;
       border: 1px solid white;
       color: white;
       background-color: #00000000;
+    }
+  }
+  .Settings{
+    text-align: left;
+    margin-top: -30px;
+    .item{
+      height: 60px;
+      background-color: #272727;
+      svg{
+        width: 26px;
+        height: 26px;
+        color: white;
+        margin: 17px 15px;
+        float: left;
+      }
+      h3{
+        color: white;
+        display: inline-flex;
+        margin: 0;
+        font-size: 17px;
+        height: 100%;
+        align-items: center;
+      }
+      select{
+        margin-right: 15px;
+        height: 100%;
+        background-color: #27272700;
+        border: none;
+        color: white;
+        text-align: right;
+        float: right;
+        option{
+          color: black;
+        }
+      }
     }
   }
 }

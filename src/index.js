@@ -21,5 +21,5 @@ root.render(
     <App />
 );
 
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 
