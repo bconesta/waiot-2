@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ListItem from '../components/ListItem'
 import Modal from '../components/Modal'
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref} from "firebase/database";
 
-export default function Time() {
+export default function Time({data}) {
   
   const[showModal, setShowModal] = useState(false);
-  const[times, setTimes] = useState([]);
-
-  useEffect(()=>{
-    const db = getDatabase();
-    const reference = ref(db, 'users/RvPFB0mPkbbqDjprx44aOszya912/times');
-    onValue(reference, (snapshot) => {
-      const data = snapshot.val();
-      setTimes(data ? data : [])
-    });
-  }, [])
+  const times = data.times ? data.times : []
 
   return (
     <div className='Time'>

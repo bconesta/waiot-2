@@ -1,7 +1,15 @@
 import React from 'react';
 import { BsGlobe2, BsClock, BsPerson, BsInfoCircle } from 'react-icons/bs';
+import { AiOutlineImport } from 'react-icons/ai'
+import { getAuth, signOut, updatePassword } from 'firebase/auth';
 
 export default function Settings() {
+
+  function logout(){
+    const auth = getAuth();
+    signOut(auth)
+  }
+
   return (
     <div className='Settings'>
       <div className='item'>
@@ -22,11 +30,15 @@ export default function Settings() {
       </div>
       <div className='item'>
         <BsPerson />
-        <h3>Cuenta</h3>
+        <h3>Cuenta <p style={{marginLeft: 10,fontWeight:200, fontSize: 15}}>{"(no disponible)"}</p></h3>
       </div>
       <div className='item'>
         <BsInfoCircle />
-        <h3>Sobre la app</h3>
+        <h3>Sobre la app <p style={{marginLeft: 10,fontWeight:200, fontSize: 15}}>{"(no disponible)"}</p></h3>
+      </div>
+      <div className='item' onClick={logout}>
+        <AiOutlineImport />
+        <h3>Cerrar sesión</h3>
       </div>
       
     </div>
