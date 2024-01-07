@@ -16,6 +16,10 @@ export default function Home({data}) {
   function changeAuto(isAuto){
     const reference = ref(db, 'users/'+ auth.currentUser.uid +'/auto')
     set(reference, isAuto)
+    const runReference = ref(db, 'users/'+ auth.currentUser.uid +'/run')
+    set(runReference, false);
+    const referenceShortcut = ref(db, 'users/'+ auth.currentUser.uid +'/shortcut')
+    set(referenceShortcut, "-")
   }
 
   function changeRun(isOn){
@@ -55,6 +59,7 @@ export default function Home({data}) {
 
       }
     }
+
     setNextEvent(nextTime.replace("$", " - "))
   }, [data.times])
 
@@ -97,6 +102,7 @@ export default function Home({data}) {
           <button disabled={data.auto} style={shortcutsStyle} onClick={shortcut}>60s</button>
           <button disabled={data.auto} style={shortcutsStyle} onClick={shortcut}>30m</button>
           <button disabled={data.auto} style={shortcutsStyle} onClick={shortcut}>1h</button>
+          <button disabled={data.auto} style={shortcutsStyle} onClick={shortcut}>3h</button>
         </div>
       </div>
     </div>
